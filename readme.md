@@ -25,10 +25,9 @@ example branch name:
 `feature/test1`
 
 Before you commit and push your changes make sure to run tfsec locally on your machine and fix the formatting by using `terraform fmt` command.
+We're not enforcing strict security standards but it's good to practice the skill.
 
-## Deployment [ WIP ]
-< This section is still a work in progress >
-
+## Deployment
 Once your PR is merged into the master branch it will be automatically deployed to Digital Ocean using Github Actions.
 
 The github actions workflow will create a terraform workspace (default will be dev) and will fill the environment variable used in the terraform code.

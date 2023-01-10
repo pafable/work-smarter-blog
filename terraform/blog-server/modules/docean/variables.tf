@@ -2,15 +2,7 @@ variable "droplet_image" {
   type = string
 }
 
-variable "droplet_name" {
-  type = string
-}
-
 variable "droplet_size" {
-  type = string
-}
-
-variable "environment" {
   type = string
 }
 

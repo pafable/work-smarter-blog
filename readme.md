@@ -15,14 +15,14 @@ We will be using the following tools and platforms to create a blog website.
 5. Use [Terraform open source](https://developer.hashicorp.com/terraform/downloads) to provision the droplet (VM's in Digital Ocean) and managed database
 
 ## Working on the project
-Create a branch with the following name `feature/username/*`
+Create a branch with the following name `feature/*`
 
 This will allow us to work on separate feature branches without interfereing with each other's work.
 
 When your work is complete open a pull request (PR) against the `main` branch and a repo admin will merge your changes if it passes the status checks.
 
 example branch name:
-`feature/your_username/test1`
+`feature/test1`
 
 Before you commit and push your changes make sure to run tfsec locally on your machine and fix the formatting by using `terraform fmt` command.
 
@@ -31,6 +31,7 @@ Before you commit and push your changes make sure to run tfsec locally on your m
 
 Once your PR is merged into the master branch it will be automatically deployed to Digital Ocean using Github Actions.
 
+The github actions workflow will create a terraform workspace (default will be dev) and will fill the environment variable used in the terraform code.
 ## Reference Docs
 - Terraform Digital Ocean [documentation](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs)
 - Digital Ocean [documentation](https://docs.digitalocean.com/products/)

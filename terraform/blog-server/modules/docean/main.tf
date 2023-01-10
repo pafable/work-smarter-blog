@@ -1,10 +1,5 @@
 locals {
-  server_name = "${var.project_name}-blog-server-${var.environment}"
-
-  default_tags = {
-    Name        = local.server_name
-    environment = var.environment
-  }
+  server_name = "${var.project_name}-blog-server-${terraform.workspace}"
 }
 
 data "digitalocean_project" "work_smarter" {

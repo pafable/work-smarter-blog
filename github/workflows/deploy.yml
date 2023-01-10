@@ -1,0 +1,44 @@
+name: 'Deploy to Digital Ocean'
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  terraform:
+    name: terraform
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: Configuring AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.BACKEND_REGION }}
+
+      - name: Terraform Init
+        run: |
+          terraform init \
+            -backend-config "bucket=${{ secrets.S3_BACKEND }}" \
+            -backend-config "region=${{ secrets.BACKEND_REGION }}" \
+            -backend-config "key=${{ secrets.PROJ }}/terraform.state"
+        working-directory: terraform/blog-server
+
+      - name: Create Workspace
+        run: terraform workspace new dev || terraform workspace select dev
+        continue-on-error: true
+        working-directory: terraform/blog-server
+
+      - name: Terraform Plan
+        run: terraform plan -var-file do_real.tfvars -out plan
+        working-directory: terraform/blog-server
+
+      - name: Terraform Apply
+        run: terraform apply plan
+        working-directory: terraform/blog-server

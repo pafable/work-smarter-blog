@@ -5,3 +5,7 @@ output "ipv4" {
 output "status" {
   value = digitalocean_droplet.web.status
 }
+
+output "name" {
+  value = digitalocean_droplet.web.name
+}

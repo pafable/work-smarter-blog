@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'feature/*'
 
 jobs:
   terraform:
@@ -45,7 +44,7 @@ jobs:
         working-directory: terraform/blog-server
 
       - name: Terraform Plan
-        run: terraform plan -var='do_token=${{ secrets.DO_TOKEN }}' -out plan -destroy
+        run: terraform plan -var='do_token=${{ secrets.DO_TOKEN }}' -out plan
         working-directory: terraform/blog-server
 
       - name: Terraform Apply

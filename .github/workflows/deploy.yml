@@ -36,7 +36,7 @@ jobs:
             -backend-config "bucket=${{ secrets.BACKEND_S3 }}" \
             -backend-config "region=us-east-1" \
             -backend-config "dynamo_table=${{ secrets.BACKEND_DYNAMO }}" \
-            -backend-config "key=work-smarter-blog-server/terraform.state"
+            -backend-config "key=digital_ocean/work-smarter-blog-server.tfstate"
         working-directory: terraform/blog-server
 
       - name: Create Workspace

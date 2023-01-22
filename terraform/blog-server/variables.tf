@@ -1,4 +1,6 @@
-variable "do_token" {}
+variable "do_token" {
+  sensitive = true
+}
 
 variable "droplet_region" {
   type    = string

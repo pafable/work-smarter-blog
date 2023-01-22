@@ -50,7 +50,7 @@ jobs:
         working-directory: terraform/blog-server
 
       - name: Terraform Plan
-        run: terraform plan -var-file do_real.tfvars -out plan
+        run: terraform plan -var='do_token=${{ secrets.DO_TOKEN }}' -out plan
         working-directory: terraform/blog-server
 
       - name: Terraform Apply

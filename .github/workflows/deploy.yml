@@ -31,6 +31,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           role-to-assume: ${{ secrets.AWS_ROLE }}
+          role-duration-seconds: 1800
+          role-session-name: WorkSmarterBlogDeploy
           aws-region: us-east-1
 
       - name: Terraform Init

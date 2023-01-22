@@ -40,7 +40,7 @@ jobs:
           terraform init \
             -backend-config "bucket=${{ secrets.BACKEND_S3 }}" \
             -backend-config "region=us-east-1" \
-            -backend-config "dynamo_table=${{ secrets.BACKEND_DYNAMO }} \
+            -backend-config "dynamo_table=${{ secrets.BACKEND_DYNAMO }}" \
             -backend-config "key=work-smarter-blog-server/terraform.state"
         working-directory: terraform/blog-server
 

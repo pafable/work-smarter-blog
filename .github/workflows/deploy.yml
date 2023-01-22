@@ -7,9 +7,13 @@ on:
 
 jobs:
   terraform:
+    environment: terraform-backend
     name: terraform
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: "Checkout"
@@ -20,14 +24,18 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.BACKEND_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          role-duration-seconds: 1800
+          role-session-name: WorkSmarterBlogDeploy
+          aws-region: us-east-1
 
       - name: Terraform Init
         run: |
           terraform init \
-            -backend-config "bucket=${{ secrets.S3_BACKEND }}" \
-            -backend-config "region=${{ secrets.BACKEND_REGION }}" \
-            -backend-config "key=${{ secrets.PROJ }}/terraform.state"
+            -backend-config "bucket=${{ secrets.BACKEND_S3 }}" \
+            -backend-config "region=us-east-1" \
+            -backend-config "dynamodb_table=${{ secrets.BACKEND_DYNAMO }}" \
+            -backend-config "key=digital_ocean/work-smarter-blog-server.tfstate"
         working-directory: terraform/blog-server
 
       - name: Create Workspace
@@ -36,7 +44,7 @@ jobs:
         working-directory: terraform/blog-server
 
       - name: Terraform Plan
-        run: terraform plan -var-file do_real.tfvars -out plan
+        run: terraform plan -var='do_token=${{ secrets.DO_TOKEN }}' -out plan
         working-directory: terraform/blog-server
 
       - name: Terraform Apply

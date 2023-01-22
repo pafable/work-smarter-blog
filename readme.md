@@ -42,4 +42,7 @@ The github actions workflow will create a terraform workspace (default will be d
     - Add tfsec as part of the workflow
     - Add the wrapper script to provision vm
     - Fill out deployment section in readme
-3. Configure a terraform remote backend to manage states
+
+## Changelist 
+- Added Github Action workflow to use s3 as a terraform backend
+- Allow GHA to use terraform to provision the blog server 

@@ -20,11 +20,6 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v2
 
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DO_TOKEN }}
-
       - name: Configuring AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

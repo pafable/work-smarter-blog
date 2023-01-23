@@ -46,7 +46,7 @@ jobs:
         run: |
           terraform plan \
             -var='do_token=${{ secrets.DO_TOKEN }}' \
-            -var='ssh_keys=[${{ secrets.SSH_KEY_1 }}]' \
+            -var='ssh_keys=["${{ secrets.SSH_KEY_1 }}"]' \
             -out plan
         working-directory: terraform/blog-server
 

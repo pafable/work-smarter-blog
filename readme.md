@@ -1,4 +1,6 @@
 # Work Smarter Blog
+[![Deploy to Digital Ocean](https://github.com/pafable/work-smarter-blog/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/pafable/work-smarter-blog/actions/workflows/deploy.yml)
+
 This project is to practice devops process and build the skills of members in the Work Smarter Discord.
 
 Join us at:
@@ -34,15 +36,17 @@ The github actions workflow will create a terraform workspace (default will be d
 ## Reference Docs
 - Terraform Digital Ocean [documentation](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs)
 - Digital Ocean [documentation](https://docs.digitalocean.com/products/)
+- Ghost Blog [documentation](https://ghost.org/docs/)
 
 ## TODO
 1. Write a wrapper in python to create a tfvars file that will be passed into a terraform deployment.
     - Create a CI workflow for the wrapper
 2. Create Github Actions workflow.
-    - Add tfsec as part of the workflow
+    - ~~Add tfsec as part of the workflow~~
     - Add the wrapper script to provision vm
-    - Fill out deployment section in readme
+    - ~~Fill out deployment section in readme~~
 
 ## Changelist 
 - Added Github Action workflow to use s3 as a terraform backend
 - Allow GHA to use terraform to provision the blog server 
+- Added tfsec scan for main and feature branches

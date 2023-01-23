@@ -7,17 +7,16 @@ on:
 
 jobs:
   terraform:
-    environment: terraform-backend
     name: terraform
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    permissions:
-      id-token: write
-      contents: read
 
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
+
+      - name: TFsec Scan
+        uses: aquasecurity/tfsec-action@v1.0.2
 
       - name: Configuring AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -44,7 +43,11 @@ jobs:
         working-directory: terraform/blog-server
 
       - name: Terraform Plan
-        run: terraform plan -var='do_token=${{ secrets.DO_TOKEN }}' -out plan
+        run: |
+          terraform plan \
+            -var='do_token=${{ secrets.DO_TOKEN }}' \
+            -var='ssh_key=[${{ secrets.SSH_KEY_1 }}]' \
+            -out plan
         working-directory: terraform/blog-server
 
       - name: Terraform Apply

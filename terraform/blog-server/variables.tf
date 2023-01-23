@@ -26,3 +26,7 @@ variable "project_name" {
   type    = string
   default = "work-smarter"
 }
+
+variable "ssh_keys" {
+  type = list(any)
+}

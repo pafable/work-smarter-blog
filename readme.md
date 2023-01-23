@@ -40,10 +40,11 @@ The github actions workflow will create a terraform workspace (default will be d
 1. Write a wrapper in python to create a tfvars file that will be passed into a terraform deployment.
     - Create a CI workflow for the wrapper
 2. Create Github Actions workflow.
-    - Add tfsec as part of the workflow
+    - ~~Add tfsec as part of the workflow~~
     - Add the wrapper script to provision vm
-    - Fill out deployment section in readme
+    - ~~Fill out deployment section in readme~~
 
 ## Changelist 
 - Added Github Action workflow to use s3 as a terraform backend
 - Allow GHA to use terraform to provision the blog server 
+- Added tfsec scan for main and feature branches

@@ -13,3 +13,7 @@ variable "project_name" {
 variable "region" {
   type = string
 }
+
+variable "ssh_keys" {
+  type = list(any)
+}

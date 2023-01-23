@@ -17,4 +17,3 @@ jobs:
 
       - name: TFsec Scan
         uses: aquasecurity/tfsec-action@v1.0.2
-        working-directory: terraform/blog-server

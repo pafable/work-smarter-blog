@@ -43,7 +43,11 @@ jobs:
         working-directory: terraform/blog-server
 
       - name: Terraform Plan
-        run: terraform plan -var='do_token=${{ secrets.DO_TOKEN }}' -out plan
+        run: |
+          terraform plan \
+            -var='do_token=${{ secrets.DO_TOKEN }}' \
+            -var='ssh_key=[${{ secrets.SSH_KEY_1 }}]' \
+            -out plan
         working-directory: terraform/blog-server
 
       - name: Terraform Apply

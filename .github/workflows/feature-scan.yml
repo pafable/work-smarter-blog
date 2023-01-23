@@ -1,0 +1,20 @@
+name: 'Scan feature branch'
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  Tfscan:
+    name: tfscan
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: TFsec Scan
+        uses: aquasecurity/tfsec-action@v1.0.2
+        working-directory: terraform/blog-server

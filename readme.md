@@ -34,6 +34,7 @@ The github actions workflow will create a terraform workspace (default will be d
 ## Reference Docs
 - Terraform Digital Ocean [documentation](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs)
 - Digital Ocean [documentation](https://docs.digitalocean.com/products/)
+- Ghost Blog [documentation](https://ghost.org/docs/)
 
 ## TODO
 1. Write a wrapper in python to create a tfvars file that will be passed into a terraform deployment.

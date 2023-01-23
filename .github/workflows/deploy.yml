@@ -17,6 +17,7 @@ jobs:
 
       - name: TFsec Scan
         uses: aquasecurity/tfsec-action@v1.0.2
+        working-directory: terraform/blog-server
 
       - name: Configuring AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -43,11 +44,7 @@ jobs:
         working-directory: terraform/blog-server
 
       - name: Terraform Plan
-        run: |
-          terraform plan \
-            -var='do_token=${{ secrets.DO_TOKEN }}' \
-            -var='ssh_key=[${{ secrets.SSH_KEY_1 }}]' \
-            -out plan
+        run: terraform plan -var='do_token=${{ secrets.DO_TOKEN }}' -out plan
         working-directory: terraform/blog-server
 
       - name: Terraform Apply

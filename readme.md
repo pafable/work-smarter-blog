@@ -1,4 +1,6 @@
 # Work Smarter Blog
+[![Deploy to Digital Ocean](https://github.com/pafable/work-smarter-blog/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/pafable/work-smarter-blog/actions/workflows/deploy.yml)
+
 This project is to practice devops process and build the skills of members in the Work Smarter Discord.
 
 Join us at:

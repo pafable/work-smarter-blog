@@ -47,7 +47,7 @@ jobs:
           terraform plan \
             -var='do_token=${{ secrets.DO_TOKEN }}' \
             -var='ssh_keys=["${{ secrets.SSH_KEY_1 }}"]' \
-            -out plan
+            -out plan -destroy
         working-directory: terraform/blog-server
 
       - name: Terraform Apply

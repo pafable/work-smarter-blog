@@ -4,7 +4,7 @@ module "ghost_blog" {
   droplet_size  = var.droplet_size
   project_name  = var.project_name
   region        = var.droplet_region
-  ssh_key       = var.ssh_keys
+  ssh_keys      = var.ssh_keys
 }
 
 output "status" {

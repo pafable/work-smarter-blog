@@ -14,9 +14,7 @@ jobs:
       image: aquasec/tfsec:latest
 
     steps:
-      - name: "Checkout"
-        uses: actions/checkout@v2
-      - name:
+      - name: Check Dir
         run: tree .
       - name: TFsec Scan
         run: tfsec

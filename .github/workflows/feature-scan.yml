@@ -6,6 +6,13 @@ on:
       - 'feature/*'
 
 jobs:
+  check_user:
+    name: check_user
+    runs-on: self-hosted
+    steps:
+      - name: check user
+        run: whoami
+
   Tfscan:
     name: tfscan
     runs-on: self-hosted

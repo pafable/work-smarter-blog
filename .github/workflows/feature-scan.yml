@@ -15,6 +15,6 @@ jobs:
 
     steps:
       - name: Check Dir
-        run: tree .
+        run: ls -alh
       - name: TFsec Scan
         run: tfsec

@@ -6,23 +6,18 @@ on:
       - 'feature/*'
 
 jobs:
-  check_user:
-    name: check_user
-    runs-on: self-hosted
-    steps:
-      - name: check user
-        run: whoami
-
   Tfscan:
     name: tfscan
     needs: check_user
     runs-on: self-hosted
     timeout-minutes: 30
+    container:
+      image: aquasec/tfsec:latest
 
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
       - name:
         run: tree .
-#      - name: TFsec Scan
-#        uses: aquasecurity/tfsec-action@v1.0.3
+      - name: TFsec Scan
+        run: tfsec

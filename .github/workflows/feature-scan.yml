@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-
+      - name:
+        run: tree .
       - name: TFsec Scan
-        uses: aquasecurity/tfsec-action@v1.0.0
+        uses: aquasecurity/tfsec-action@v1.0.3

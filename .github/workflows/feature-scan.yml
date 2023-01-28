@@ -15,6 +15,7 @@ jobs:
 
   Tfscan:
     name: tfscan
+    needs: check_user
     runs-on: self-hosted
     timeout-minutes: 30
 
@@ -23,4 +24,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: TFsec Scan
-        uses: aquasecurity/tfsec-action@v1.0.2
+        uses: aquasecurity/tfsec-action@v1.0.0

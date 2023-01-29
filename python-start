@@ -1,0 +1,19 @@
+## This will be beginning of terraform 
+age = 20 ## variable 
+age = 30 ## variable
+price = 19.95
+first_name = 'Mosh' ## make sure to use an underscore for more than one word
+is_online = False ## boolean true or false, also make sure to capitalize first letter  
+print(age) ## strings ('hello world')  
+
+
+## Exercise - We check in a patient named John smith
+## He is 20 years old 
+## He is a new patient 
+
+## Receive input from the user
+name = input ("What is your name? ")
+print ('Hello ' + name) ## string concatenation
+
+## Type conversion - Numbers, Boolean, Strings - convert the variables from one to another 
+

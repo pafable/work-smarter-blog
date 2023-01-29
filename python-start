@@ -17,3 +17,5 @@ print ('Hello ' + name) ## string concatenation
 
 ## Type conversion - Numbers, Boolean, Strings - convert the variables from one to another 
 
+## New Line for Python
+

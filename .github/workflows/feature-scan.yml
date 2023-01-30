@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     container:
-      image: aquasec/tfsec:latest
+      image: ubuntu:latest
     steps:
       - uses: actions/checkout@v2
       - name: check
-        run: ls
+        run: ls -alh && pwd

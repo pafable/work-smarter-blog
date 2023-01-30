@@ -13,10 +13,5 @@ jobs:
     container:
       image: aquasec/tfsec:latest
     steps:
-#      - name: TFsec Scan
-#        run: tfsec
-      - name: check hostname
-        run: |
-          echo "hostname: $(hostname)"
       - name: check dir
         run: ls -alh && pwd

@@ -14,4 +14,4 @@ jobs:
       image: python:latest
     steps:
       - name: check dir
-        run: ls -alh
+        run: pwd

@@ -11,7 +11,7 @@ jobs:
     runs-on: self-hosted
     timeout-minutes: 30
     container:
-      image: aquasec/tfsec:latest
+      image: python:latest
     steps:
       - name: check dir
         run: ls -alh

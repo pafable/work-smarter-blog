@@ -13,5 +13,4 @@ jobs:
     container:
       image: ubuntu:latest
     steps:
-      - name: check dir
-        run: pwd
+      - uses: actions/checkout@v2

@@ -14,5 +14,7 @@ jobs:
 #      image: python:latest
     steps:
       - uses: actions/checkout@v2
+      - name: TFsec Scan
+        uses: aquasecurity/tfsec-action@v1.0.3
       - name: check
         run: ls -alh && pwd

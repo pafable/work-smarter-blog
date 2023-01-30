@@ -15,7 +15,7 @@ jobs:
     steps:
 #      - name: TFsec Scan
 #        run: tfsec
-      - name: check os version
-        run: cat /etc/os-release
+      - name: check hostname
+        run: echo "hostname: $(hostname)"
       - name: check dir
         run: ls -alh && pwd
